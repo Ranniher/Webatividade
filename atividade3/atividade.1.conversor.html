@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor de Moedas</title>
+    <style>
+        body {
+            font-family: #f0f8ff;
+        }
+
+        #conversor {
+            max-width: 300px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select, input, button {
+            margin-bottom: 10px;
+            width: 90%;
+            padding: 10px;
+        }
+
+        #resultado {
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div id="conversor">
+        <h2>Conversor de Moedas</h2>
+        <label for="moeda">Selecione a moeda:</label>
+        <select id="moeda">
+            <option value="dolar">Dólar (USD)</option>
+            <option value="euro">Euro (EUR)</option>
+        </select>ty6h6 
+        <label for="valor">Digite o valor:</label>
+        <input type="number" id="valor"placeholder="Digite o valor">
+        <button onclick="converter()">Calcular</button>
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        function converter() {
+            const moedaSelecionada = document.getElementById("moeda").value;
+            const valor = parseFloat(document.getElementById("valor").value);
+
+            let taxaDeCambio = 0;
+            if (moedaSelecionada === "dolar") {
+                taxaDeCambio = 4.93; // 1 USD = 4.93 BRL
+            } else if (moedaSelecionada === "euro") {
+                taxaDeCambio = 5.26; // 1 EUR = 5.26 BRL
+            }
+
+            const resultado = valor * taxaDeCambio;
+
+            document.getElementById("resultado").innerHTML = `Resultado em Reais (BRL): R$ ${resultado.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
