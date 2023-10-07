@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <title>Conversor de Moedas</title>
     <style>
         body {
@@ -16,9 +17,12 @@
             padding: 20px;
             border: 2px solid #ccc;
             border-radius: 5px;
+            background-color: green;
         }
 
-        select, input, button {
+        select,
+        input,
+        button {
             margin-bottom: 10px;
             width: 90%;
             padding: 10px;
@@ -37,9 +41,9 @@
         <select id="moeda">
             <option value="dolar">Dólar (USD)</option>
             <option value="euro">Euro (EUR)</option>
-        </select>ty6h6 
+        </select>
         <label for="valor">Digite o valor:</label>
-        <input type="number" id="valor"placeholder="Digite o valor">
+        <input type="number" id="valor" placeholder="Digite o valor">
         <button onclick="converter()">Calcular</button>
         <div id="resultado"></div>
     </div>
@@ -51,9 +55,9 @@
 
             let taxaDeCambio = 0;
             if (moedaSelecionada === "dolar") {
-                taxaDeCambio = 4.93; // 1 USD = 4.93 BRL
+                taxaDeCambio = 4.93; 
             } else if (moedaSelecionada === "euro") {
-                taxaDeCambio = 5.26; // 1 EUR = 5.26 BRL
+                taxaDeCambio = 5.26; 
             }
 
             const resultado = valor * taxaDeCambio;
